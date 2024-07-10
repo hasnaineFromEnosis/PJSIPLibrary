@@ -3,3 +3,7 @@ module Pjsua2 {
     export *
 }
 
+module PJSIP {
+    header "Sources/PJSIPLibrary/PJSIPLibrary.swift"
+    export *
+}
