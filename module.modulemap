@@ -1,0 +1,5 @@
+module Pjsua2 {
+    header "Sources/Pjsua2/include/CustomPJSUA2.hpp"
+    export *
+}
+

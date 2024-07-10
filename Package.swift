@@ -20,7 +20,27 @@ let package = Package(
         .target(
                 name: "Pjsua2",
                 path: "Sources/Pjsua2",
-                publicHeadersPath: "include"
+                publicHeadersPath: "include",
+                cSettings: [
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjsip/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjlib/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjlib-util/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjmedia/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjnath/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/third_party/include"),
+                    .headerSearchPath("../LibraryFile/Libraries"),
+                    .define("PJ_AUTOCONF=1", to: "GCC_PREPROCESSOR_DEFINITIONS"),
+                ],
+                cxxSettings: [
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjsip/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjlib/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjlib-util/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjmedia/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/pjnath/include"),
+                    .headerSearchPath("../LibraryFile/PjsipLibrary/third_party/include"),
+                    .headerSearchPath("../LibraryFile/Libraries"),
+                    .define("PJ_AUTOCONF=1", to: "GCC_PREPROCESSOR_DEFINITIONS"),
+                ]
         ),
         .target(
             name: "PJSIPLibrary",
@@ -28,8 +48,7 @@ let package = Package(
         ),
         .testTarget(
             name: "PJSIPLibraryTests",
-            dependencies: ["PJSIPLibrary"]),
-        
-        
+            dependencies: ["PJSIPLibrary"]
+        )
     ]
 )
