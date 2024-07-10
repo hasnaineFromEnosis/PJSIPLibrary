@@ -12,7 +12,7 @@ protocol PJSIPLibraryDelegate: AnyObject {
     func callStatusRecieved(status: Int)
 }
 
-public struct PJSIPLibrary {
+public class PJSIPLibrary {
     
     // Delegate property
     private weak var delegate: PJSIPLibraryDelegate?
