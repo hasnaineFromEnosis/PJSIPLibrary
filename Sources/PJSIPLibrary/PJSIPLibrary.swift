@@ -1,7 +1,7 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
-import SwiftUI
+import Foundation
 import Pjsua2
 
 protocol PJSIPLibraryDelegate: AnyObject {
