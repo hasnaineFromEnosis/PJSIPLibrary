@@ -18,7 +18,23 @@ public struct PJSIPLibrary {
     private weak var delegate: PJSIPLibraryDelegate?
     
     init() {
+        //Create Lib
         CPPWrapper().createLibWrapper()
+        
+        // Listen incoming call via function pointer
+        CPPWrapper().incoming_call_wrapper({ () -> Void in
+            self.delegate?.incomingCallReceived(callId: self.getIncomingCallId())
+        })
+        
+        // Listen incoming call via function pointer
+        CPPWrapper().acc_listener_wrapper({ (status: Bool) -> Void in
+            self.delegate?.acccountUpdateReceived(status: status)
+        })
+        
+        // Listen incoming & outgoing call status
+        CPPWrapper().call_listener_wrapper({ (call_answer_code: Int32) -> Void in
+            self.delegate?.callStatusRecieved(status: Int(call_answer_code))
+        })
     }
 
     func answerCall() {
@@ -52,17 +68,4 @@ public struct PJSIPLibrary {
     func logout() {
         CPPWrapper().unregisterAccountWrapper()
     }
-    
-    private func incoming_call_swift() {
-        self.delegate?.incomingCallReceived(callId: self.getIncomingCallId())
-    }
-    
-    private func acc_listener_swift(status: Bool) {
-        self.delegate?.acccountUpdateReceived(status: status)
-    }
-    
-    private func call_status_listener_swift ( call_answer_code: Int32) {
-        self.delegate?.callStatusRecieved(status: Int(call_answer_code))
-    }
-    
 }
