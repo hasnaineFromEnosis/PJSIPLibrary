@@ -18,6 +18,10 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
+            name: "PJSIPLibrary",
+            dependencies: ["Pjsua2"]
+        ),
+        .target(
                 name: "Pjsua2",
                 path: "Sources/Pjsua2",
                 publicHeadersPath: "include",
@@ -41,10 +45,6 @@ let package = Package(
                     .headerSearchPath("../LibraryFile/Libraries"),
                     .define("PJ_AUTOCONF=1", to: "GCC_PREPROCESSOR_DEFINITIONS"),
                 ]
-        ),
-        .target(
-            name: "PJSIPLibrary",
-            dependencies: ["Pjsua2"]
         ),
         .testTarget(
             name: "PJSIPLibraryTests",
