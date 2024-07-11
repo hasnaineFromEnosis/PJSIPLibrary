@@ -2,8 +2,3 @@ module Pjsua2 {
     header "Sources/Pjsua2/include/wrapper.h"
     export *
 }
-
-module PJSIP {
-    header "Sources/PJSIPLibrary/PJSIPLibrary.swift"
-    export *
-}
