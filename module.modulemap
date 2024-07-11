@@ -1,5 +1,5 @@
 module Pjsua2 {
-    header "Sources/Pjsua2/include/CustomPJSUA2.hpp"
+    header "Sources/Pjsua2/include/wrapper.h"
     export *
 }
 

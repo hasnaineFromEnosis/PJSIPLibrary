@@ -13,14 +13,6 @@ let package = Package(
         ),
     ],
     targets: [
-        .systemLibrary(
-            name: "CPJSIP",
-            pkgConfig: "libpjproject",
-            providers: [
-                .brew(["pjproject"]),
-                .apt(["libpjproject-dev"])
-            ]
-        ),
         .target(
             name: "PJSIPLibrary",
             dependencies: ["Pjsua2"]
