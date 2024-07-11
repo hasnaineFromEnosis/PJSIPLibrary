@@ -22,7 +22,7 @@
 /**
  Create a object to be able to use it from C++
  */
-@interface CPPWrapper : NSObject
+@interface public CPPWrapper : NSObject
 
 //Lib
 /**
